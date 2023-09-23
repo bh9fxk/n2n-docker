@@ -23,6 +23,6 @@ RUN ./autogen.sh && ./configure && make
 RUN ls /opt/n2n
 
 FROM debian:12
-COPY --from=build-env /opt/n2n/usr/sbin/nedge /usr/sbin/
+COPY --from=build-env /opt/n2n/edge /usr/sbin/
 
-CMD ["/usr/sbin/nedge","/etc/edge.conf"]
+CMD ["/usr/sbin/edge","/etc/edge.conf"]
