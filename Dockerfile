@@ -12,7 +12,7 @@
 #FROM alpine:latest
 #RUN apk update && apk upgrade --no-cache 
 #&& apk add openssl zstd-libs linux-headers --no-cache
-FROM ubuntu:22.04
+FROM ubuntu:22.04 AS build-env
 RUN apt-get update && apt-get -y install n2n
 
 FROM ubuntu:22.04
