@@ -13,7 +13,8 @@
 #RUN apk update && apk upgrade --no-cache 
 #&& apk add openssl zstd-libs linux-headers --no-cache
 FROM ubuntu:22.04 AS build-env
-RUN apt-get -y install software-properties-common wget && \
+RUN apt-get update && \
+apt-get -y install software-properties-common wget && \
 add-apt-repository universe && \
 wget https://packages.ntop.org/apt-stable/22.04/all/apt-ntop-stable.deb && \
 apt-get -y install ./apt-ntop-stable.deb
