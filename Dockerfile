@@ -11,7 +11,7 @@ RUN ./autogen.sh && ./configure && make && make install
 
 
 FROM alpine:latest
-RUN apk update && apk upgrade --no-cache 
+#RUN apk update && apk upgrade --no-cache 
 #&& apk add openssl zstd-libs linux-headers --no-cache
 
 COPY --from=build-env /usr/sbin/edge /usr/sbin/
