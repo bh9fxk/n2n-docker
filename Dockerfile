@@ -18,10 +18,10 @@ apt-get -y install software-properties-common wget && \
 add-apt-repository universe && \
 wget https://packages.ntop.org/apt-stable/22.04/all/apt-ntop-stable.deb && \
 apt-get -y install ./apt-ntop-stable.deb
-RUN apt-get -y install n2n
+RUN apt-get update && apt-get -y install nedge
 RUN apt-get -y autoremove && apt-get autoclean
 
 FROM ubuntu:22.04
-COPY --from=build-env /usr/sbin/edge /usr/sbin/
+COPY --from=build-env /usr/sbin/nedge /usr/sbin/
 
-CMD ["/usr/sbin/edge","/etc/edge.conf"]
+CMD ["/usr/sbin/nedge","/etc/edge.conf"]
