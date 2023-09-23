@@ -4,7 +4,7 @@ RUN apk update && apk upgrade
 RUN apk add build-base openssl-dev zstd-dev git cmake linux-headers automake autoconf bash
 
 WORKDIR /opt
-RUN git clone --depth 1 --branch 3.1.1 https://github.com/ntop/n2n.git
+RUN git clone --depth 1 --branch 3.0 https://github.com/ntop/n2n.git
 
 WORKDIR /opt/n2n
 #RUN git checkout -b 3.1.0
