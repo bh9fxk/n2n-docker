@@ -22,6 +22,6 @@ RUN apt-get install n2n
 RUN apt-get -y autoremove && apt-get autoclean
 
 FROM ubuntu:22.04
-COPY --from=build-env /usr/local/sbin/edge /usr/sbin/
+COPY --from=build-env /usr/sbin/edge /usr/sbin/
 
 CMD ["/usr/sbin/edge","/etc/edge.conf"]
