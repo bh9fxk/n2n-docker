@@ -20,8 +20,9 @@ RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable
 
 WORKDIR /opt/n2n
 RUN ./autogen.sh && ./configure && make
+RUN ls /opt/n2n
 
 FROM debian:12
-COPY --from=build-env /usr/sbin/nedge /usr/sbin/
+COPY --from=build-env /opt/n2n/usr/sbin/nedge /usr/sbin/
 
 CMD ["/usr/sbin/nedge","/etc/edge.conf"]
