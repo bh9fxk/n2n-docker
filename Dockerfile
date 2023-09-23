@@ -3,10 +3,9 @@ FROM alpine:latest AS build-env
 RUN apk update && apk upgrade 
 RUN apk add --no-cache git bash autoconf automake gcc make musl-dev pkgconfig linux-headers
 WORKDIR /opt
-RUN git clone https://github.com/ntop/n2n.git
+RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable
 
 WORKDIR /opt/n2n
-RUN git switch -c 3.0-stable
 RUN ./autogen.sh && ./configure && make && make install
 
 
