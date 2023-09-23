@@ -6,7 +6,7 @@ WORKDIR /opt
 RUN git clone https://github.com/ntop/n2n.git
 
 WORKDIR /opt/n2n
-RUN git switch -c 3.0
+RUN git switch -c 3.0-stable
 RUN ./autogen.sh && ./configure && make && make install
 
 
