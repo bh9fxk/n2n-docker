@@ -20,6 +20,6 @@ wget https://packages.ntop.org/apt-stable/22.04/all/apt-ntop-stable.deb && \
 apt-get -y install ./apt-ntop-stable.deb
 
 FROM ubuntu:22.04
-COPY --from=build-env /usr/sbin/edge /usr/sbin/
+COPY --from=build-env /usr/local/sbin/edge /usr/sbin/
 
 CMD ["/usr/sbin/edge","/etc/edge.conf"]
