@@ -14,7 +14,7 @@
 #&& apk add openssl zstd-libs linux-headers --no-cache
 FROM debian:12 AS build-env
 RUN apt-get update && \
-apt-get -y install git autoconf automake gcc make musl-dev pkgconfig
+apt-get -y install git autoconf automake gcc make musl-dev pkg-config
 WORKDIR /opt
 RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable
 
