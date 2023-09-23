@@ -1,13 +1,12 @@
 FROM alpine:latest AS build-env
 
 RUN apk update && apk upgrade 
-RUN apk add build-base openssl-dev zstd-dev git cmake linux-headers automake autoconf bash
-
+RUN apk add --no-cache git bash autoconf automake gcc make musl-dev pkgconfig linux-headers
 WORKDIR /opt
 RUN git clone https://github.com/ntop/n2n.git
 
 WORKDIR /opt/n2n
-RUN git switch -c 3.0-stable
+RUN git switch -c 3.0
 RUN ./autogen.sh && ./configure && make && make install
 
 
