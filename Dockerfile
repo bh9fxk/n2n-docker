@@ -4,8 +4,7 @@ RUN apk update && apk upgrade
 RUN apk add build-base openssl-dev zstd-dev git cmake linux-headers automake autoconf bash
 
 WORKDIR /opt
-RUN git clone https://github.com/ntop/n2n.git
-RUN ls
+RUN git clone https://github.com/ntop/n2n.git && git checkout 3.0-stable
 
 WORKDIR /opt/n2n
 RUN ./autogen.sh && ./configure && make && make install
