@@ -14,11 +14,9 @@
 #&& apk add openssl zstd-libs linux-headers --no-cache
 FROM ubuntu:22.04 AS build-env
 RUN apt-get update && \
-apt-get -y install software-properties-common wget && \
-add-apt-repository universe && \
-wget https://packages.ntop.org/apt-stable/22.04/all/apt-ntop-stable.deb && \
-apt-get -y install ./apt-ntop-stable.deb
-RUN apt-get update && apt-get -y install nedge
+apt-get -y install wget systemd
+RUN wget https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb
+RUN dpkg -i n2n_3.1.1_amd64.deb
 RUN apt-get -y autoremove && apt-get autoclean
 
 FROM ubuntu:22.04
