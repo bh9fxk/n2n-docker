@@ -18,7 +18,7 @@ apt-get -y install software-properties-common wget && \
 add-apt-repository universe && \
 wget https://packages.ntop.org/apt-stable/22.04/all/apt-ntop-stable.deb && \
 apt-get -y install ./apt-ntop-stable.deb
-RUN apt-get install n2n
+RUN apt-get -y install n2n
 RUN apt-get -y autoremove && apt-get autoclean
 
 FROM ubuntu:22.04
