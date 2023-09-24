@@ -13,7 +13,7 @@ RUN cd /root && \
 git clone --depth 1 --branch 3.1.1 https://github.com/ntop/n2n.git && \
 cd n2n && mkdir build && cd build
 WORKDIR /root/n2n/build
-cmake .. "-DN2N_OPTION_USE_OPENSSL=ON" "-DN2N_OPTION_USE_ZSTD=ON" && \
+cmake /root/n2n/ "-DN2N_OPTION_USE_OPENSSL=ON" "-DN2N_OPTION_USE_ZSTD=ON" && \
 cmake --build . && \
 cmake --install .
 
