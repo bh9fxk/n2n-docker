@@ -12,7 +12,7 @@
 #FROM alpine:latest
 #RUN apk update && apk upgrade --no-cache 
 #&& apk add openssl zstd-libs linux-headers --no-cache
-FROM debian:12 AS build-env
+FROM debian:12-slim AS build-env
 RUN apt-get update && \
 apt-get -y install git autoconf automake gcc make musl-dev pkg-config
 WORKDIR /opt
@@ -22,7 +22,7 @@ WORKDIR /opt/n2n
 RUN ./autogen.sh && ./configure && make
 RUN ls /opt/n2n
 
-FROM debian:12
+FROM debian:12-slim
 COPY --from=build-env /opt/n2n/edge /usr/sbin/
 
 CMD ["/usr/sbin/edge","/etc/edge.conf"]
