@@ -16,7 +16,7 @@ FROM debian:12-slim AS build-env
 RUN apt-get update && \
 apt-get -y install git autoconf automake gcc make musl-dev pkg-config
 WORKDIR /opt
-RUN git clone https://github.com/ntop/n2n.git -b 3.0-stabled && \
+RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable && \
 
 WORKDIR /opt/n2n
 RUN git swicht -c 2683f2c2350a6d5765611611e748af25ad2ac98
