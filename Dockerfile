@@ -6,7 +6,7 @@ WORKDIR /opt
 RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable
 
 WORKDIR /opt/n2n
-RUN ./autogen.sh && ./configure && make && make install
+RUN ./autogen.sh && ./configure && make
 
 
 FROM alpine:3.15
