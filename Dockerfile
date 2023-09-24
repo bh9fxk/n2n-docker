@@ -19,7 +19,7 @@ WORKDIR /opt
 RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable
 
 WORKDIR /opt/n2n
-RUN git swicht -c 2683f2c2350a6d5765611611e748af25ad2ac98
+RUN git switch -c 2683f2c2350a6d5765611611e748af25ad2ac98
 RUN ./autogen.sh && ./configure && make
 RUN ls /opt/n2n
 
