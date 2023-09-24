@@ -1,8 +1,8 @@
 FROM alpine:latest AS build-env
 
 RUN apk update && apk upgrade 
-#RUN apk add --no-cache git bash autoconf automake gcc make musl-dev pkgconfig linux-headers
-RUN apk add --no-cache git bash gcc musl-dev pkgconfig linux-headers cmake openssl-dev zstd-dev
+RUN apk add --no-cache git bash autoconf automake gcc make musl-dev pkgconfig linux-headers openssl-dev zstd-dev
+
 WORKDIR /opt
 RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable
 
