@@ -11,7 +11,7 @@ RUN ./autogen.sh && ./configure && make
 
 FROM alpine:latest
 RUN apk update && apk upgrade --no-cache 
-#&& apk add openssl zstd-libs linux-headers --no-cache
+RUN apk add openssl zstd-libs musl-dev linux-headers --no-cache
 
 COPY --from=build-env /opt/n2n/edge /usr/sbin/
 
