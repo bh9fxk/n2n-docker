@@ -4,8 +4,9 @@ RUN apk update && apk upgrade
 #RUN apk add --no-cache git bash autoconf automake gcc make musl-dev pkgconfig linux-headers openssl-dev zstd-dev
 RUN apk add --no-cache git bash autoconf automake gcc musl-dev make pkgconfig linux-headers
 WORKDIR /root
-RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable
 
+#RUN git clone https://github.com/ntop/n2n.git -b 3.0-stable
+RUN git clone https://github.com/ntop/n2n.git
 WORKDIR /root/n2n
 RUN ./autogen.sh && ./configure && make
 
